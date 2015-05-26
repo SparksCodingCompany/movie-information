@@ -1,5 +1,9 @@
 {
     "name": "sparks-coding/movie-information",
+    "description": "Wrapper for the OMDb API",
+    "keywords": [
+        "movie", "movies", "imdb.com", "omdbapi.com"
+    ],    
     "license": "GPLv3",
     "authors": [
         {
@@ -12,8 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SparksCoding\\MovieInformation\\": ""
+            "SparksCoding\\MovieInformation\\": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
