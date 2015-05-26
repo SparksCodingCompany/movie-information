@@ -2,7 +2,6 @@
     "name": "sparks-coding/movie-information",
     "type": "package",
     "package": {
-        "name": "SparksCodingCompany/movie-information",
         "license": "GPLv3",
         "authors": [
             {
