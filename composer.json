@@ -1,4 +1,5 @@
 {
+    "name": "SparksCoding/movie-information",
     "type": "package",
     "package": {
         "name": "SparksCodingCompany/movie-information",
