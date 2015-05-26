@@ -1,24 +1,18 @@
 {
     "name": "sparks-coding/movie-information",
-    "type": "package",
-    "package": {
-        "license": "GPLv3",
-        "authors": [
-            {
-                "name": "Matt Sparks",
-                "email": "matt@sparkscoding.com"
-            }
-        ],            
-        "version": "0.1beta",
-        "source": {
-            "url": "git://SparksCodingCompany/movie-information.git",
-            "type": "git",
-            "reference": "master"
-        },
-        "autoload": {
-            "psr-0" : {
-                "SparksCoding\\MovieInformation" : "src"
-            }
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Matt Sparks",
+            "email": "matt@sparkscoding.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+    },
+    "autoload": {
+        "psr-4": {
+            "SparksCoding\\MovieInformation\\": ""
         }
     }
 }
