@@ -5,6 +5,7 @@ A Simple PHP Wrapper for the OMDb API (http://www.omdbapi.com/)
 ## Usage
 
 ```
+<?php
 // Include the Class
 require 'MovieInformation.php';
 
@@ -36,6 +37,7 @@ echo $movie->imdbId;     // tt0133093
 $movie = new MovieInformation('tt0133093');
 
 echo $movie->title; // The Matrix
+?>
 ```
 
 ## Methods
@@ -45,6 +47,7 @@ echo $movie->title; // The Matrix
 Get the value of specified key. Optionally return the value as an array.
 
 ```
+<?php
 // As String
 $actors = $movie->get('actors'); 
 
@@ -54,6 +57,7 @@ echo $actors // Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
 $actors = $movie->get('actors', true);
 
 print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] => Carrie-Anne Moss [3] => Hugo Weaving ) 
+?>
 ```
 
 ### `getAll()`
@@ -61,6 +65,7 @@ print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] =
 Get all the movie's information as an array.
 
 ```
+<?php
 Array
 (
     [Title] => The Matrix
@@ -84,6 +89,7 @@ Array
     [Type] => movie
     [Response] => True
 )
+?>
 ```
 
 ## To Do
