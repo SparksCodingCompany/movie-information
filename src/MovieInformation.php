@@ -7,7 +7,7 @@ namespace SparksCoding\MovieInformation;
  *
  * A PHP wrapper for the OMDb API (http://www.omdbapi.com/)
  *
- * @version   0.1beta
+ * @version   1.0
  * @author    Matt Sparks <matt@sparkscoding.com>
  * @copyright 2015 Sparks Coding Company (http://sparkscoding.com)
  * @license   http://opensource.org/licenses/GPL-3.0 GPL v3

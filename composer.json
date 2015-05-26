@@ -18,6 +18,5 @@
         "psr-4": {
             "SparksCoding\\MovieInformation\\": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
