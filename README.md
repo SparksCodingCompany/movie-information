@@ -60,7 +60,6 @@ echo $movie->title; // The Matrix
 | Option   | Values       | Default | Description                                        |
 | ---------|--------------|---------|--------------------------------------------------- |
 | plot     | short, full  | short   | Return short or full movie plot                    |
-| ---------|--------------|---------|--------------------------------------------------- |
 | tomatoes | true, false  | false   | Return additional information from Rotten Tomatoes |
 
 ## Methods
