@@ -238,6 +238,12 @@ class MovieInformation
 	public $website;
 
 	/**
+	 * All returned data
+	 * @var array
+	 */
+	public $all;
+
+	/**
 	 * Class Constructor
 	 *
 	 * Make API call, parse information
@@ -266,18 +272,17 @@ class MovieInformation
 	 */
 	private function makeApiUrl()
 	{
-
-		$url = $this->apiUrl . '?';
+		$url     = $this->apiUrl . '?';
 		$options = '';
 
 		// Determine if we're using an IMDB ID or a movie title.
 		if(preg_match('/^(tt)[A-Za-z0-9]+/', $this->movieId))
 		{
-			$field = 'i=';
+			$type = 'i=';
 		}
 		else
 		{
-			$field = 't=';
+			$type = 't=';
 		}
 
 		// Sort through the options
@@ -286,10 +291,10 @@ class MovieInformation
 			$options .= '&' . $option . '=' . urlencode($value);
 		}
 
-		$url = $url . $field . urlencode($this->movieId) . $options;
+		// Build final URL
+		$url = $url . $type . urlencode($this->movieId) . $options;
 
 		return $url;
-
 	}
 
 	/**
@@ -323,8 +328,7 @@ class MovieInformation
 		// Close
 		curl_close($ch);
 
-		return json_decode($result);	
-
+		return json_decode($result);
 	}
 
 	/**
@@ -348,7 +352,11 @@ class MovieInformation
 				$key = lcfirst($key);				
 			}
 
+			// Set class property
 			$this->$key = $value;
+
+			// Add to "all" array
+			$this->all[$key] = $value;
 		}
 	}
 
@@ -372,6 +380,9 @@ class MovieInformation
 	 */
 	public function getMultiple($keys = array())
 	{
+		// If $keys isn't an array, return.
+		if(!is_array($keys)) return;
+
 		$properties = [];
 
 		foreach($keys as $key)
@@ -387,12 +398,13 @@ class MovieInformation
 
 	/**
 	 * Get All Information
-	 * 
+	 *
+	 * @param  bool $asJson return data as JSON
 	 * @return array
 	 */
-	public function getAll()
-	{
-		return (array) $this->unfilteredResults;
+	public function getAll($asJson = false)
+	{		
+		return $asJson ? json_encode($this->all) : $this->all;
 	}
 
 

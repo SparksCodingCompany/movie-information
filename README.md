@@ -97,9 +97,9 @@ print_r($multiple);
 // )
 ```
 
-### `getAll()`
+### `getAll($asJson)`
 
-Get all the movie's information as an array.
+Get all the movie's information as an array or JSON.
 
 ```
 Array
