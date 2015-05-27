@@ -365,6 +365,27 @@ class MovieInformation
 	}
 
 	/**
+	 * Get Multple Properties
+	 * 
+	 * @param  array  $keys properties
+	 * @return array
+	 */
+	public function getMultiple($keys = array())
+	{
+		$properties = [];
+
+		foreach($keys as $key)
+		{
+			if(property_exists($this, $key))
+			{
+				$properties[$key] = $this->$key;
+			}
+		}
+
+		return $properties;
+	}
+
+	/**
 	 * Get All Information
 	 * 
 	 * @return array

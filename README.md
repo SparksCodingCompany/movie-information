@@ -79,6 +79,23 @@ $actors = $movie->get('actors', true);
 
 print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] => Carrie-Anne Moss [3] => Hugo Weaving ) 
 ```
+### `getMultiple(array('title', 'year', 'genre', 'dvd'))`
+
+Get multiple values returned in an array.
+
+```
+$multiple = $movie->getMultiple(array('title', 'year', 'genre', 'dvd'));
+
+print_r($multiple);
+
+// Array
+// (
+//     [title] => The Matrix
+//     [year] => 1999
+//     [genre] => Action, Sci-Fi
+//     [dvd] => 21 Sep 1999
+// )
+```
 
 ### `getAll()`
 
