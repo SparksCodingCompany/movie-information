@@ -84,7 +84,7 @@ print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] =
 Get multiple values returned in an array.
 
 ```
-$multiple = $movie->getMultiple(array('title', 'year', 'genre', 'dvd'));
+$multiple = $movie->getMultiple(array('title', 'year'));
 
 print_r($multiple);
 
