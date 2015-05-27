@@ -28,6 +28,12 @@ class MovieInformation
 	protected $movieId;
 
 	/**
+	 * Class Options
+	 * @var array
+	 */
+	protected $options;
+
+	/**
 	 * Unfiltered API results
 	 * @var array
 	 */
@@ -145,7 +151,91 @@ class MovieInformation
 	 * Movie IMDB ID
 	 * @var string
 	 */
-	public $imdbId;
+	public $imdbID;
+
+	/**
+	 * Rotten Tomates Meter
+	 * @var string
+	 */
+	public $tomatoMeter;
+
+	/**
+	 * Rotten Tomates Image
+	 * @var string
+	 */	
+	public $tomatoImage;
+
+	/**
+	 * Rotten Tomates Rating
+	 * @var string
+	 */	
+	public $tomatoRating;
+
+	/**
+	 * Rotten Tomates Number of Reviews
+	 * @var string
+	 */	
+	public $tomatoReviews;
+
+	/**
+	 * Rotten Tomates Number of Fresh Reviews
+	 * @var string
+	 */	
+	public $tomatoFresh;
+
+	/**
+	 * Rotten Tomates Number of Rotten
+	 * @var string
+	 */	
+	public $tomatoRotten;
+
+	/**
+	 * Rotten Tomates Consensus
+	 * @var string
+	 */	
+	public $tomatoConsensus;
+
+	/**
+	 * Rotten Tomates User Meter
+	 * @var string
+	 */	
+	public $tomatoUserMeter;
+
+	/**
+	 * Rotten Tomates User Rating
+	 * @var string
+	 */	
+	public $tomatoUserRating;
+
+	/**
+	 * Rotten Tomates Number of User Reviews
+	 * @var string
+	 */	
+	public $tomatoUserReviews;
+
+	/**
+	 * DVD Release Date
+	 * @var string
+	 */
+	public $dvd;
+
+	/**
+	 * Box Office
+	 * @var string
+	 */
+	public $boxOffice;
+
+	/**
+	 * Production Company
+	 * @var string
+	 */
+	public $production;
+
+	/**
+	 * Movie Website
+	 * @var string
+	 */
+	public $website;
 
 	/**
 	 * Class Constructor
@@ -155,10 +245,13 @@ class MovieInformation
 	 * @param string $movieID The title or IMDB id
 	 * 
 	 */
-	public function __construct($movieId)
+	public function __construct($movieId, $options = array())
 	{
 		// Set Movie ID
 		$this->movieId = $movieId;
+
+		// Set Options
+		$this->options = $options;
 
 		// Make API request
 		$this->unfilteredResults = $this->makeRequest();
@@ -175,6 +268,7 @@ class MovieInformation
 	{
 
 		$url = $this->apiUrl . '?';
+		$options = '';
 
 		// Determine if we're using an IMDB ID or a movie title.
 		if(preg_match('/^(tt)[A-Za-z0-9]+/', $this->movieId))
@@ -186,7 +280,13 @@ class MovieInformation
 			$field = 't=';
 		}
 
-		$url = $url . $field . urlencode($this->movieId);
+		// Sort through the options
+		foreach($this->options as $option=>$value)
+		{
+			$options .= '&' . $option . '=' . urlencode($value);
+		}
+
+		$url = $url . $field . urlencode($this->movieId) . $options;
 
 		return $url;
 
@@ -233,10 +333,20 @@ class MovieInformation
 	 */
 	private function parseResults()
 	{
+		// Array of keys to make entirely lowercase
+		$makeLowercase = ['DVD'];
+
 		foreach($this->unfilteredResults as $key=>$value)
 		{
-			// Make key lowercase
-			$key = strtolower($key);
+			if(in_array($key, $makeLowercase))
+			{
+				$key = strtolower($key);
+			}
+			else
+			{
+				// Make camel case
+				$key = lcfirst($key);				
+			}
 
 			$this->$key = $value;
 		}

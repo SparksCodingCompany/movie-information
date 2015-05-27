@@ -5,7 +5,6 @@ A Simple PHP Wrapper for the OMDb API (http://www.omdbapi.com/)
 ## Usage
 
 ```
-<?php
 // Include the Class
 require 'MovieInformation.php';
 
@@ -13,7 +12,7 @@ require 'MovieInformation.php';
 use SparksCoding\MovieInformation\MovieInformation;
 
 // Get move by title
-$movie = new MovieInformation('The Matrix');
+$movie = new MovieInformation('The Matrix', array('plot'=>'full', 'tomatoes'=>'true'));
 
 echo $movie->title;      // The Matrix
 echo $movie->year;       // 1999
@@ -31,14 +30,38 @@ echo $movie->poster;     // http://ia.media-imdb.com/images/M/MV5BMTkxNDYxOTA4M1
 echo $movie->metascore;  // 73
 echo $movie->imdbRating; // 8.7
 echo $movie->imdbVotes;  // 1023621
-echo $movie->imdbId;     // tt0133093
+echo $movie->imdbID;     // tt0133093
+
+// Additional Information Returned when 'tomatoes' is set to true
+
+echo $movie->tomatoMeter;        // RT Meter
+echo $movie->tomatoImage;        // RT Image
+echo $movie->tomatoRating;       // RT Rating
+echo $movie->tomatoReviews;      // Number of RT Reviews
+echo $movie->tomatoFresh;        // Number of RT Fresh Reviews
+echo $movie->tomatoRotten;       // Number of RT Rotten Reviews
+echo $movie->tomatoConsensus;    // RT Consensus
+echo $movie->tomatoUserMeter;    // RT User Meter
+echo $movie->tomatoUserRating;   // RT User Rating
+echo $movie->tomatoUserReviews;  // Number of RT User Reviews
+echo $movie->dvd;                // DVD Release Date
+echo $movie->boxOffice;          // Box Office
+echo $movie->production;         // Production Company
+echo $movie->website;            // Movie Website
 
 // Get movie by IMDB ID
 $movie = new MovieInformation('tt0133093');
 
 echo $movie->title; // The Matrix
-?>
 ```
+
+## Options
+
+| Option   | Values      | Default | Description                                        |
+-----------------------------------------------------------------------------------------
+| plot     | short, full  | short  | Return short or full movie plot                    |
+-----------------------------------------------------------------------------------------
+| tomatoes | true, false | false   | Return additional information from Rotten Tomatoes |
 
 ## Methods
 
@@ -47,7 +70,6 @@ echo $movie->title; // The Matrix
 Get the value of specified key. Optionally return the value as an array.
 
 ```
-<?php
 // As String
 $actors = $movie->get('actors'); 
 
@@ -57,7 +79,6 @@ echo $actors // Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
 $actors = $movie->get('actors', true);
 
 print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] => Carrie-Anne Moss [3] => Hugo Weaving ) 
-?>
 ```
 
 ### `getAll()`
@@ -65,7 +86,6 @@ print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] =
 Get all the movie's information as an array.
 
 ```
-<?php
 Array
 (
     [Title] => The Matrix
@@ -89,7 +109,6 @@ Array
     [Type] => movie
     [Response] => True
 )
-?>
 ```
 
 ## To Do
