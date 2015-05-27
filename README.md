@@ -79,12 +79,12 @@ $actors = $movie->get('actors', true);
 
 print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] => Carrie-Anne Moss [3] => Hugo Weaving ) 
 ```
-### `getMultiple(array('title', 'year', 'genre', 'dvd'))`
+### `getMultiple(array('title', 'year'))`
 
 Get multiple values returned in an array.
 
 ```
-$multiple = $movie->getMultiple(array('title', 'year'));
+$multiple = $movie->getMultiple(array('title', 'year', 'genre', 'dvd'));
 
 print_r($multiple);
 
