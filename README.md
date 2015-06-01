@@ -102,29 +102,55 @@ print_r($multiple);
 Get all the movie's information as an array or JSON.
 
 ```
-Array
-(
-    [Title] => The Matrix
-    [Year] => 1999
-    [Rated] => R
-    [Released] => 31 Mar 1999
-    [Runtime] => 136 min
-    [Genre] => Action, Sci-Fi
-    [Director] => Andy Wachowski, Lana Wachowski
-    [Writer] => Andy Wachowski, Lana Wachowski
-    [Actors] => Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
-    [Plot] => A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.
-    [Language] => English
-    [Country] => USA, Australia
-    [Awards] => Won 4 Oscars. Another 34 wins & 39 nominations.
-    [Poster] => http://ia.media-imdb.com/images/M/MV5BMTkxNDYxOTA4M15BMl5BanBnXkFtZTgwNTk0NzQxMTE@._V1_SX300.jpg
-    [Metascore] => 73
-    [imdbRating] => 8.7
-    [imdbVotes] => 1023621
-    [imdbID] => tt0133093
-    [Type] => movie
-    [Response] => True
-)
+$all = $movie->getAll();
+
+print_r($all);
+
+// Array
+// (
+//     [title] => The Matrix
+//     [year] => 1999
+//     [rated] => R
+//     [released] => 31 Mar 1999
+//     [runtime] => 136 min
+//     [genre] => Action, Sci-Fi
+//     [director] => Andy Wachowski, Lana Wachowski
+//     [writer] => Andy Wachowski, Lana Wachowski
+//     [actors] => Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
+//     [plot] => A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.
+//     [language] => English
+//     [country] => USA, Australia
+//     [awards] => Won 4 Oscars. Another 34 wins & 40 nominations.
+//     [poster] => http://ia.media-imdb.com/images/M/MV5BMTkxNDYxOTA4M15BMl5BanBnXkFtZTgwNTk0NzQxMTE@._V1_SX300.jpg
+//     [metascore] => 73
+//     [imdbRating] => 8.7
+//     [imdbVotes] => 1,037,112
+//     [imdbID] => tt0133093
+//     [type] => movie
+//     [tomatoMeter] => 87
+//     [tomatoImage] => certified
+//     [tomatoRating] => 7.6
+//     [tomatoReviews] => 139
+//     [tomatoFresh] => 121
+//     [tomatoRotten] => 18
+//     [tomatoConsensus] => Thanks to the Wachowskis' imaginative vision, The Matrix is a smartly crafted combination of spectacular action and groundbreaking special effects.
+//     [tomatoUserMeter] => 85
+//     [tomatoUserRating] => 3.6
+//     [tomatoUserReviews] => 33317892
+//     [dvd] => 21 Sep 1999
+//     [boxOffice] => N/A
+//     [production] => Warner Bros. Pictures
+//     [website] => http://www.whatisthematrix.com
+//     [response] => True
+// )
+
+// As JSON
+$json = $movie->getAll(true);
+
+echo $json;
+
+// {"title":"The Matrix","year":"1999","rated":"R","released":"31 Mar 1999","runtime":"136 min","genre":"Action, Sci-Fi","director":"Andy Wachowski, Lana Wachowski","writer":"Andy Wachowski, Lana Wachowski","actors":"Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving","plot":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","language":"English","country":"USA, Australia","awards":"Won 4 Oscars. Another 34 wins & 40 nominations.","poster":"http:\/\/ia.media-imdb.com\/images\/M\/MV5BMTkxNDYxOTA4M15BMl5BanBnXkFtZTgwNTk0NzQxMTE@._V1_SX300.jpg","metascore":"73","imdbRating":"8.7","imdbVotes":"1,037,112","imdbID":"tt0133093","type":"movie","tomatoMeter":"87","tomatoImage":"certified","tomatoRating":"7.6","tomatoReviews":"139","tomatoFresh":"121","tomatoRotten":"18","tomatoConsensus":"Thanks to the Wachowskis' imaginative vision, The Matrix is a smartly crafted combination of spectacular action and groundbreaking special effects.","tomatoUserMeter":"85","tomatoUserRating":"3.6","tomatoUserReviews":"33317892","dvd":"21 Sep 1999","boxOffice":"N\/A","production":"Warner Bros. Pictures","website":"http:\/\/www.whatisthematrix.com","response":"True"}
+
 ```
 
 ## To Do
