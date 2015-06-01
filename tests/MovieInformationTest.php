@@ -102,7 +102,7 @@ class MovieInformationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * That that the 'getAll' method returns an JSON.
+	 * That that the 'getAll' method returns JSON.
 	 */
 	public function testGetAllReturnsJson()
 	{
