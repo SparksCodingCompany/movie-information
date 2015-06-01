@@ -7,7 +7,7 @@ namespace SparksCoding\MovieInformation;
  *
  * A PHP wrapper for the OMDb API (http://www.omdbapi.com/)
  *
- * @version   1.0
+ * @version   1.0.1
  * @author    Matt Sparks <matt@sparkscoding.com>
  * @copyright 2015 Sparks Coding Company (http://sparkscoding.com)
  * @license   http://opensource.org/licenses/GPL-3.0 GPL v3
@@ -264,6 +264,16 @@ class MovieInformation
 
 		// Parse Results
 		$this->parseResults();
+	}
+
+	/**
+	 * Return empty string for undefined properties.
+	 * 
+	 * @return string
+	 */
+	public function __get($name)
+	{
+		return isset($this->$name) ? $this->name : '';
 	}
 
 	/**
