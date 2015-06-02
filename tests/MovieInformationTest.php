@@ -56,7 +56,7 @@ class MovieInformationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * That that the 'get' method returns an empty value.
+	 * Test that the 'get' method returns an empty value.
 	 */
 	public function testGetReturnsEmptyValue()
 	{
@@ -64,7 +64,7 @@ class MovieInformationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * That that the 'get' method returns an array.
+	 * Test that the 'get' method returns an array.
 	 */
 	public function testGetReturnsAnArray()
 	{
@@ -72,7 +72,7 @@ class MovieInformationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * That that the 'getMultiple' method returns an array.
+	 * Test that the 'getMultiple' method returns an array.
 	 */
 	public function testGetMultipleReturnsAnArray()
 	{
@@ -80,7 +80,7 @@ class MovieInformationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * That that the 'getMultiple' method returns the proper keys.
+	 * Test that the 'getMultiple' method returns the proper keys.
 	 */
 	public function testGetMultipleReturnsProperKeys()
 	{
@@ -94,7 +94,7 @@ class MovieInformationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * That that the 'getAll' method returns an array.
+	 * Test that the 'getAll' method returns an array.
 	 */
 	public function testGetAllReturnsArray()
 	{
@@ -102,7 +102,7 @@ class MovieInformationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * That that the 'getAll' method returns JSON.
+	 * Test that the 'getAll' method returns JSON.
 	 */
 	public function testGetAllReturnsJson()
 	{
