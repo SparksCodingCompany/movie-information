@@ -1,10 +1,10 @@
 # Movie Information PHP Class
 
-A Simple PHP Wrapper for the OMDb API (http://www.omdbapi.com/)
+A Simple PHP Wrapper for the OMDb API (https://www.omdbapi.com/)
 
 ## Usage
 
-```
+```php
 // Include the Class
 require 'MovieInformation.php';
 
@@ -68,7 +68,7 @@ echo $movie->title; // The Matrix
 
 Get the value of specified key. Optionally return the value as an array.
 
-```
+```php
 // As String
 $actors = $movie->get('actors'); 
 
@@ -83,7 +83,7 @@ print_r($actors); // Array ( [0] => Keanu Reeves [1] => Laurence Fishburne [2] =
 
 Get multiple values returned in an array.
 
-```
+```php
 $multiple = $movie->getMultiple(array('title', 'year', 'genre', 'dvd'));
 
 print_r($multiple);
@@ -101,7 +101,7 @@ print_r($multiple);
 
 Get all the movie's information as an array or JSON.
 
-```
+```php
 $all = $movie->getAll();
 
 print_r($all);
