@@ -1,6 +1,6 @@
 # Movie Information PHP Class
 
-A Simple PHP Wrapper for the OMDb API (http://www.omdbapi.com/)
+A Simple PHP Wrapper for the OMDb API (https://www.omdbapi.com/)
 
 ## Usage
 
